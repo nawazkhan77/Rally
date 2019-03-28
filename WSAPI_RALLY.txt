@@ -1,0 +1,56 @@
+https://rally1.rallydev.com/slm/doc/webservice/
+
+
+Example tried:
+https://rally1.rallydev.com/slm/webservice/1.41/testcase?query=(FormattedID%20=%20TC692)&fetch=ObjectID,Owner,Priority
+
+https://rally1.rallydev.com/slm/webservice/1.41/testcaseresult/13639652648/create (worked)
+https://rally1.rallydev.com/slm/webservice/1.41/testcaseresult/create (worked)
+
+https://rally1.rallydev.com/slm/webservice/1.41/testset?query=
+https://rally1.rallydev.com/slm/webservice/1.41/testset?query=(%20FormattedID%20=%20TS34%20)&fetch=true
+https://rally1.rallydev.com/slm/webservice/1.41/testset?query=&fetch=FormattedId,Name&start=20
+other page params are pagesize=30
+
+
+payload.xml = 
+
+<TestCaseResult>
+<Build>Sprint8</Build>
+<Date>2013-08-24T08:00:14.000Z</Date>
+<TestCase ref="/testcase/13639425496"/>
+<Tester ref="/user/5700405814"/>
+<Verdict>Fail</Verdict>
+</TestCaseResult>
+https://rally1.rallydev.com/slm/webservice/1.41/testcase/13639425496
+
+
+POST it without user and pasword using poster.
+
+Note: Version 1.41 uses xml payload. need to work with v2.0 using json.
+
+Also note the objecy IDs in API URI its extracted from API: 
+https://rally1.rallydev.com/slm/webservice/v2.0/testcase?&query=(FormattedID = TC1)&fetch=ObjectID,Owner
+
+
+Result is in XML:
+https://rally1.rallydev.com/slm/webservice/1.41/testcase?query=(FormattedID = TC1499)&fetch=true
+
+Result is in Json:
+https://rally1.rallydev.com/slm/webservice/v2.0/testcase?query=(FormattedID = TC1499)&fetch=true
+
+
+
+<Results>
+        <TestCaseResult rallyAPIMajor="1" rallyAPIMinor="41" ref="https://rally1.rallydev.com/slm/webservice/1.41/testcaseresult/13639652648" type="TestCaseResult" 
+/>
+
+
+https://rally1.rallydev.com/slm/webservice/v2.0/testcase?query=%28FormattedID%20=%20TC1499%29&fetch=true
+
+
+
+/*//String QueryURL = "https://rally1.rallydev.com/slm/webservice/1.41/testcase?query=(FormattedID%20=%20TC767)&fetch=ObjectID,Owner";
+//String strUrl = "https://rally1.rallydev.com/slm/webservice/v2.0/testcase?query=(FormattedID = TC1499)&fetch=true"; // wont work due to URL not encoded
+//String strUrl = "https://rally1.rallydev.com/slm/webservice/1.41/testcase?query=%28FormattedID%20=%20TC734%29&fetch=true";
+//String strUrl = "https://rally1.rallydev.com/slm/webservice/1.41/testcaseresult/13639652648"; // not required */
